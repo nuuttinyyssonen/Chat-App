@@ -1,0 +1,80 @@
+body {
+    background-color: #1a1a1d;
+    font-family: Roboto, sans-serif;
+}
+
+.container {
+    display: grid;
+    place-content: center;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    margin-top: 300px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    border-bottom: solid 3px white;
+}
+
+.field {
+    width: 40vh;
+    height: 5vh;
+}
+
+#user {
+    margin-bottom: 20px;
+}
+
+.input::placeholder {
+    position: relative;
+    left: 10px;
+}
+
+#room {
+    margin-bottom: 20px;
+}
+
+#submit {
+  appearance: button;
+  backface-visibility: hidden;
+  background-color: #405cf5;
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+  font-size: 100%;
+  height: 5vh;
+  line-height: 1.15;
+  outline: none;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all .2s,box-shadow .08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+#submit:disabled {
+  cursor: default;
+}
+
+#submit:focus {
+  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+}
+
+.bottom-one {
+    margin-top: 10px;
+}
+
+.bottomest-one {
+    margin-top: 10px;
+}

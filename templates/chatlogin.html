@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/first.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Join</h1>
+        <form method="post">
+            <br>
+            <input size="32" id="room" name="code" class="field input" placeholder="Room">
+            <br>
+            <button type="submit" name="join" class="field" id="submit">LogIn To Room</button>
+            <br>
+            <button type="submit" name="create" class="field bottom-one" id="submit">Create Room</button>
+            <br>
+            <button type="submit" name="logout" class="field bottomest-one" id="submit">Logout</button>
+        </form>
+    </div>
+    
+</body>
+</html>

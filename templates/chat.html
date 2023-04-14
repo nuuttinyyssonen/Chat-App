@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 id="title"><span class="dot">●</span>Room {{ session['room'] }}</h1><button id="leaveRoom">Leave</button>
+        </div>
+            <!-- <textarea disabled id="message" rows="5" cols="30"></textarea> -->
+            <div id="message"></div>
+        <br>
+        <div class="inputarea">
+            <input type="text" placeholder="Type a message..." id="myMessage">
+            <button id="sendButton" onclick="sendMessage()">SEND</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let socket = io()
+        
+        let message = document.getElementById('message')
+        let button = document.getElementById('sendButton')
+        let inputField = document.getElementById('myMessage')
+        let leaveRoom = document.getElementById('leaveRoom')
+        
+        const connection = (username, msg) => {
+            const content = username + " has connected"
+        }
+
+        socket.on('connect', function(data) {
+            connection(data.username + msg)
+        })
+        
+        const createMessage = (username, msg) => {
+            let linebreak = document.createElement("br");
+            let paragraph = document.createElement("p");
+            paragraph.classList.add("text")
+            const content = username + ": " + msg
+            paragraph.textContent = content
+            message.append(paragraph)
+            message.append(linebreak)
+            console.log(content)
+        }
+
+        socket.on('message', function(data) {
+            createMessage(data.username, data.message)
+        })
+
+        const sendMessage = () => {
+            if(inputField.value == "") return;
+            socket.emit('message', {data: inputField.value})
+            inputField.value = ""
+        }
+
+
+        leaveRoom.addEventListener('click', function() {
+            socket.send("has left the room")
+            socket.on('disconnect', function() {
+                socket.disconnect()
+            })
+            window.location.href = "{{ url_for('chatlogin') }}"
+        })
+
+    </script>
+    
+</body>
+</html>

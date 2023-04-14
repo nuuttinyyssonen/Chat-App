@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+</head>
+<body>
+    <div class="container">
+        <form action="/signup" method="post">
+            <h1>Signup</h1>
+            {{ form.hidden_tag() }}
+            {{ form.username(size=32, class="input", id="Username", placeholder="Username") }}
+            <br>
+            {{ form.email(size=32, class="input", id="email", placeholder="Email@gmail.com") }}
+            <br>
+            {{ form.password(size=32, class="input", id="password", placeholder="Password") }}
+            <br>
+            {{ form.password2(size=32, class="input", id="password2", placeholder="Repeat Password") }}
+            <br>
+            {{ form.submit(class="submit") }}
+        </form>
+    </div>
+    
+</body>
+</html>
